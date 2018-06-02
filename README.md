@@ -4,7 +4,7 @@ Fun with variable length n-grams and Markov Chains in Python!
 
 ## About
 
-Yelp produced a dataset of ~ 4 million customer reviews on ~ 15k businesses. I thought it would be interesting to see if I could build models using n-grams and Markov Chains to generate fake (but realistic) reviews from Yelp's review corpus. I decided to build the models from scratch and added in some advanced functionality. While these models are a complete implementation, a lot more can be done to improve the sentences the models generate.
+Yelp produced a dataset of ~ 4 million customer reviews on ~ 15k businesses. I thought it would be interesting to a build model using n-grams and Markov Chains in an attempt to generate fake (but realistic) reviews from Yelp's review corpus. I decided to build the models from scratch to get the project going.
 
 ## The Yelp Dataset 
 
