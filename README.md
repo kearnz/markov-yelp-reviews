@@ -12,18 +12,18 @@ Yelp produced a dataset of ~ 4 million customer reviews on ~ 15k businesses. I t
 
 I'm in the process of reorganizing these scripts into a more useable package, so I apologize for the lack of SemVer. But below is what you'd definitely need to get these scripts running.
 
-Non-Python
+<div><b><u>Non Python</u></b></div>
 
-* The yelp dataset (~5.5G)
+* The yelp dataset (~5.5G): https://www.yelp.com/dataset/challenge
 
-Built-ins
+<div><b><u>Builtins</u></b></div>
 
 * os
 * re
 * itertools
 * random
 
-Additional
+<div><b><u>Additional</u></b></div>
 
 * json
 * numpy
