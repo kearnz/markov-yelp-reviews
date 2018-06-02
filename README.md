@@ -12,18 +12,18 @@ Yelp produced a dataset of ~ 4 million customer reviews on ~ 15k businesses. I t
 
 I'm in the process of reorganizing these scripts into a more useable package, so I apologize for the lack of SemVer. But below is what you'd definitely need to get these scripts running.
 
-<div><b><u>Non Python</u></b></div>
+<div><b><em>Non Python</em></b></div>
 
 * The yelp dataset (~5.5G): https://www.yelp.com/dataset/challenge
 
-<div><b><u>Builtins</u></b></div>
+<div><b><em>Builtins</em></b></div>
 
 * os
 * re
 * itertools
 * random
 
-<div><b><u>Additional</u></b></div>
+<div><b><em>Additional</em></b></div>
 
 * json
 * numpy
@@ -39,4 +39,4 @@ I'm in the process of reorganizing these scripts into a more useable package, so
 
 ## To Do
 
-This project barely scratches the surface of what can be done with n-grams and Markov chains.  Below are some examples of directions I'm considering, in addition to other miscellaneous improvements necessary to make the package more useable. 
+This project barely scratches the surface of what can be done with n-grams and Markov chains.  Some directions I'm considering, in addition to other miscellaneous improvements necessary to make the package more useable, are: 
