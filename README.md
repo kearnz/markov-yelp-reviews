@@ -67,7 +67,6 @@ This project barely scratches the surface of what can be done with n-grams and M
 1. Remove hard-coded dependencies in the yelp class
 2. Support SQL files as well for yelp data
 
-<br>
 <div><em><b>Markov</b></em></div>
 
 1. ~~Make markov class independent of the yelp class, allowing any string input~~
@@ -76,7 +75,6 @@ This project barely scratches the surface of what can be done with n-grams and M
 4. Better handling of punctuation and parts-of-speech
 5. Weighting words based on metadata and not solely frequency in transition matrix
 
-<br>
 <div><em><b>Other</b></em></div>
 
 1. Explanation of MarkovModel Class
