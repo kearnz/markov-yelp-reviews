@@ -37,9 +37,18 @@ I'm in the process of reorganizing these scripts into a more useable package, so
 
 ## Using this Project
 
-Alt-The yelp class
+<div><em><b>The Yelp Class</em></b></div>
 
-The yelp class expects JSON from the yelp dataset. On initialization, the yelp class calls its methods to parse the input JSON and conveniently store 
+The yelp class expects a path to the JSON files from the yelp dataset. On initialization, the yelp class calls internal methods to parse the input JSON and conveniently store information about businesses, users, and reviews.
+
+```python
+import os
+os.chdir('{0}{1}'.format(os.path.realpath('..'),'/yelp_dataset'))
+yelp = YelpData(path)
+dir(yelp)
+```
+
+<div><em><b>The Yelp Class</em></b></div>
 
 ## Examples
 
@@ -47,14 +56,20 @@ The yelp class expects JSON from the yelp dataset. On initialization, the yelp c
 
 1. Download the yelp dataset and store it locally
 2. Build the yelp class as a convenience to extract relavent info from yelp dataset
-3. Develop markov model that's 
+3. Make markov class independent of the yelp class, allowing any string input
+4. Develop second, more advanced setence model so more dynamic than one method
 
 ## To Do
 
 This project barely scratches the surface of what can be done with n-grams and Markov chains.  Some directions I'm considering, in addition to other miscellaneous improvements necessary to make the package more useable, are: 
 
+<div><em><b>Yelp</em></b></div>
+1. Remove hard-coded dependencies in the yelp class
+2. Support SQL files as well for yelp data
+
+<div><em><b>Markov</em></b></div>
 1. ~~Make markov class independent of the yelp class, allowing any string input~~
 2. ~~Develop second, more advanced setence model so more dynamic than one method~~
 3. Use nltk to take care of simple things like creating ngrams
-4. Remove hard-coded dependencies in the yelp class
-5. Support SQL files as well for yelp data
+4. Better handling of punctuation and parts-of-speech
+5. Weighting words based on metadata and not solely frequency in transition matrix
