@@ -37,7 +37,7 @@ I'm in the process of reorganizing these scripts into a more useable package, so
 
 ## Using this Project
 
-<div><em><b>The Yelp Class</em></b></div>
+<div><em><b>The Yelp Class</b></em></div>
 
 The YelpData class expects a path to the JSON files from the yelp dataset. On initialization, the yelp class calls internal methods to parse the input JSON and conveniently store information about businesses, users, and reviews. The class is for convenience. It's perfect for someone who wants to apply the Markov class to the yelp dataset without spending time to understand Yelp's json structure. That being said, it is restrictive in the sense that the user has no control how the data is reduced and what information is lost in the process.
 
@@ -47,7 +47,7 @@ yelp = YelpData(path)
 dir(yelp) # returns businesses, categories, reviews attributes
 ```
 
-<div><em><b>The Markov Class</em></b></div>
+<div><em><b>The Markov Class</b></em></div>
 
 ## Examples
 
@@ -62,17 +62,17 @@ dir(yelp) # returns businesses, categories, reviews attributes
 
 This project barely scratches the surface of what can be done with n-grams and Markov chains.  Some directions I'm considering, in addition to other miscellaneous improvements necessary to make the package more useable, are: 
 
-<div><em><b>Yelp</em></b></div>
+<div><em><b>Yelp</b></em></div>
 1. Remove hard-coded dependencies in the yelp class
 2. Support SQL files as well for yelp data
 
-<div><em><b>Markov</em></b></div>
+<div><em><b>Markov</b></em></div>
 1. ~~Make markov class independent of the yelp class, allowing any string input~~
 2. ~~Develop second, more advanced setence model so more dynamic than one method~~
 3. Use nltk to take care of simple things like creating ngrams
 4. Better handling of punctuation and parts-of-speech
 5. Weighting words based on metadata and not solely frequency in transition matrix
 
-<div><em><b>Other</em></b></div>
+<div><em><b>Other</b></em></div>
 1. Explanation of MarkovModel Class
 2. Examples of flexibility of MarkovModel class and results from yelp dataset.
