@@ -42,7 +42,7 @@ I'm in the process of reorganizing these scripts into a more useable package, so
 The YelpData class expects a path to the JSON files from the yelp dataset. On initialization, the yelp class calls internal methods to parse the input JSON and conveniently store information about businesses, users, and reviews. The class is for convenience. It's perfect for someone who wants to apply the Markov class to the yelp dataset without spending time to understand Yelp's json structure. That being said, it is restrictive in the sense that the user has no control how the data is reduced and what information is lost in the process.
 
 ```python
-path = '/path/to/yelp/data'
+path = "/path/to/yelp/data"
 yelp = YelpData(path)
 dir(yelp) # returns businesses, categories, reviews attributes
 ```
