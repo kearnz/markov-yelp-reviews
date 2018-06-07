@@ -39,16 +39,15 @@ I'm in the process of reorganizing these scripts into a more useable package, so
 
 <div><em><b>The Yelp Class</em></b></div>
 
-The yelp class expects a path to the JSON files from the yelp dataset. On initialization, the yelp class calls internal methods to parse the input JSON and conveniently store information about businesses, users, and reviews.
+The YelpData class expects a path to the JSON files from the yelp dataset. On initialization, the yelp class calls internal methods to parse the input JSON and conveniently store information about businesses, users, and reviews. The class is for convenience. It's perfect for someone who wants to apply the Markov class to the yelp dataset without spending time to understand Yelp's json structure. That being said, it is restrictive in the sense that the user has no control how the data is reduced and what information is lost in the process.
 
 ```python
-import os
-os.chdir('{0}{1}'.format(os.path.realpath('..'),'/yelp_dataset'))
+path = '/path/to/yelp/data'
 yelp = YelpData(path)
-dir(yelp)
+dir(yelp) # returns businesses, categories, reviews attributes
 ```
 
-<div><em><b>The Yelp Class</em></b></div>
+<div><em><b>The Markov Class</em></b></div>
 
 ## Examples
 
@@ -73,3 +72,7 @@ This project barely scratches the surface of what can be done with n-grams and M
 3. Use nltk to take care of simple things like creating ngrams
 4. Better handling of punctuation and parts-of-speech
 5. Weighting words based on metadata and not solely frequency in transition matrix
+
+<div><em><b>Other</em></b></div>
+1. Explanation of MarkovModel Class
+2. Examples of flexibility of MarkovModel class and results from yelp dataset.
