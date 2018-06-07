@@ -10,6 +10,9 @@ class YelpData:
         self.path = path
         self.business = 'business.json'
         self.review = 'review.json'
+        self.cols_biz = ('address','business_id','city','name','review_count','stars')
+        self.cols_cat = ('business_id','categories')
+        self.cols_review = ('business_id','review_id','stars','text','cool','funny','useful')
         #Use these variables to access data once instance of class initialized
         self.businesses = self._business_details()
         self.categories = self._business_categories()
@@ -31,28 +34,30 @@ class YelpData:
     def _b_dict(self,d,cols):
         return dict((k,v) for k,v in d.items() if k in cols)
     
-    def _business_details(self):
+    def _business_details(self,cols=None):
+        # Hard Coded - cols_biz only thing allowed right now
+        cols = self.cols_biz
         '''flatten structure to get all details of business, with key as index'''
         businesses = self.retrieve_all_data(self.business)
         #reduce each business object to get the information we care about
-        cols = ('address','business_id','city','name','review_count','stars')
         business_df = pd.DataFrame([self._b_dict(d,cols) for d in businesses])
         return business_df.set_index('business_id')
 
     def _business_categories(self):
+        # Hard Coded - cols_cat only thing allowed right now
+        cols = self.cols_cat
         '''categories will function as a table in 1NF w/ business_id,category'''
         businesses = self.retrieve_all_data(self.business)
-        cols = ('business_id','categories')
         business_cats = [self._b_dict(d,cols) for d in businesses]
         flattened_cats = list(it.chain(*[list(zip(it.cycle([d['business_id']]),
             d['categories'])) for d in business_cats]))
         return pd.DataFrame(flattened_cats,columns=['business_id', 'category'])
     
     def _review_details(self):
+        # Hard Coded - cols_review only thing allowed right now
+        cols = self.cols_review
         '''flatten structure to get all details of users'''
         reviews = self.retrieve_all_data(self.review)
-        #we don't care about users in this context
-        cols = ('business_id','review_id','stars','text','cool','funny','useful')
         review_df = pd.DataFrame([self._b_dict(d,cols) for d in reviews])
         return review_df.set_index('review_id')
 
