@@ -49,6 +49,13 @@ dir(yelp) # returns businesses, categories, reviews attributes
 
 <div><em><b>The Markov Class</b></em></div>
 
+The MarkovModel class is responsible for actually generating new sentences from the text fed to it. In this project, the corpus consists of yelp reviews, but the MarkovModel can run on any set of documents and is not dependent on yelp data. The code below demonstrates how to initialize a sentence generator, sticking with the yelp dataset by example.
+
+```python
+yelp_corpus = ["Here's a yelp review.","Followed by a second one", "And a third!"]
+standard_markov = MarkovModel(sentence_vec = yelp_corpus, order = 3)
+```
+
 ## Examples
 
 ## Progress
