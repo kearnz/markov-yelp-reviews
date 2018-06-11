@@ -57,6 +57,8 @@ yelp_corpus = ["Here's an example of yelp review.",
 standard_markov = MarkovModel(sentence_vec = yelp_corpus, order = 3)
 ```
 
+The MarkovModel takes a collection of sentences that acts as the corpus for our generator. The order argument specifies the number of words to include in our n-grams. Three is generally a solid order - anything lower generally produces inelligble sentences, and numbers higher eventually copy too much one sentence from the review.
+
 ## Examples
 
 ## Progress
@@ -82,8 +84,9 @@ This project barely scratches the surface of what can be done with n-grams and M
 3. Use nltk to take care of simple things like creating ngrams
 4. Better handling of punctuation and parts-of-speech
 5. Weighting words based on metadata and not solely frequency in transition matrix
+6. Optimize efficiency of algorithms
 
 <div><em><b>Other</b></em></div>
 
-1. Explanation of MarkovModel Class
+1. ~Explanation of MarkovModel Class~
 2. Examples of flexibility of MarkovModel class and results from yelp dataset.
