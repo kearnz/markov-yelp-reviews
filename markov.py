@@ -34,7 +34,7 @@ class MarkovModel:
         d = self.word_builder(s)
         return d
 
-    def markov_sentence_one(self,iterations,data=None,begin=None,gen=[]):
+    def simple_sentence(self,iterations,data=None,begin=None,gen=[]):
         '''gen random sentence with no consideration of punctuation, english language or beginning / end words'''
         o = self.order
         try:
@@ -55,10 +55,10 @@ class MarkovModel:
         except KeyError:
             return ' '.join(gen)
         if iterations > 0:
-            self.markov_sentence_one(iterations-1,data=data,begin=next_step,gen=gen)
+            self.simple_sentence(iterations-1,data=data,begin=next_step,gen=gen)
         return ' '.join(gen)
     
-    def markov_sentence_two(self,iterations,starter=None,data=None,
+    def smarter_sentence(self,iterations,starter=None,data=None,
                             begin=None,gen=[],cnt=0,extend=False):
         '''deals with punctuation a bit more and allows user to extend a sentence'''
         o = self.order
@@ -89,18 +89,20 @@ class MarkovModel:
         except KeyError:
             return ' '.join(gen)
         if cnt <= iterations:
-            self.markov_sentence_two(iterations,starter=None,
+            self.smarter_sentence(iterations,starter=None,
                                      data=data,begin=next_step,
                                      gen=gen,cnt=cnt+1,extend=extend)
         if extend:
             if cnt > iterations and next_word[-1] not in self.punc_end:
-                self.markov_sentence_two(iterations,starter=None,
+                self.smarter_sentence(iterations,starter=None,
                                          data=data,begin=next_step,
                                          gen=gen,cnt=cnt,extend=extend)
         return ' '.join(gen)
     
     def most_similar_sentence(self,res):
 
+        # inefficient way to do this right now, 
+        # but works well enough for quick and dirty check
         analysis = [res] + [i.replace('\n','') for i in self.sentence_vec] 
         vec = TVF(min_df=1).fit_transform(analysis)
         vals = (vec * vec.T)[0].A[0]
