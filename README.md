@@ -57,7 +57,16 @@ yelp_corpus = ["Here's an example of yelp review.",
 standard_markov = MarkovModel(sentence_vec = yelp_corpus, order = 3)
 ```
 
-The MarkovModel takes a collection of sentences that acts as the corpus for our generator. The order argument specifies the number of words to include in our n-grams. Three is generally a solid order - anything lower generally produces inelligble sentences, and numbers higher eventually copy too much one sentence from the review.
+The MarkovModel takes a collection of sentences that acts as the corpus for our generator. The order argument specifies the number of words to include in our n-grams. Three is generally a solid order - anything lower often produces inelligble sentences, and numbers higher eventually copy too much one sentence from the data set.
+
+```python
+yelp_corpus = ["Here's an example of yelp review.",
+    "Followed by a second one.", "Now let's add in a third!"]
+standard_markov = MarkovModel(sentence_vec = yelp_corpus, order = 3)
+```
+
+The MarkovModel class has two methods for generating new sentences. They are:
+
 
 ## Examples
 
