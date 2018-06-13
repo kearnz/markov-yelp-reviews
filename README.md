@@ -39,28 +39,29 @@ I'm in the process of reorganizing these scripts into a more useable package, so
 
 <div><em><b>The Yelp Class</b></em></div>
 
-The YelpData class expects a path to the JSON files from the yelp dataset. On initialization, the yelp class calls internal methods to parse the input JSON and conveniently store information about businesses, users, and reviews. The class is for convenience. It's perfect for someone who wants to apply the Markov class to the yelp dataset without spending time to understand Yelp's json structure. That being said, it is restrictive in the sense that the user has no control how the data is reduced and what information is lost in the process.
+The YelpData class expects a path to the JSON files from the yelp dataset. On initialization, the yelp class calls internal methods to parse the input JSON and conveniently store information about businesses, users, and reviews. The class is for convenience. It's perfect for someone who wants to apply the Markov class to the yelp dataset without spending time to understand Yelp's JSON structure. That being said, it is restrictive in the sense that the user has no control how the data is reduced and what information is lost in the process.
 
 ```python
 import os
 yelp_path = os.getcwd()
-yelp_sentences= YelpData(path)
-dir(yelp_sentences) # returns businesses, categories, reviews attributes
+yelp_corpus= YelpData(path)
+dir(yelp_corpus) # returns businesses, categories, reviews attributes
 ```
 
 <div><em><b>The Markov Class</b></em></div>
 
-The MarkovModel class is responsible for actually generating new sentences from the text fed to it. In this project, the corpus consists of yelp reviews, but the MarkovModel can run on any set of documents and is not dependent on yelp data. The code below demonstrates how to initialize the MarkovModel, sticking with the yelp dataset as an example.
+The MarkovModel class is responsible for actually generating new sentences from the text fed to it. In this project, the corpus consists of yelp reviews, but the MarkovModel accepts any set of documents and is not dependent on yelp data. The code below demonstrates how to initialize the MarkovModel, using the yelp dataset as an example.
 
 ```python
-markov = MarkovModel(sentence_vec = yelp_corpus, order = 3)
+yelp_markov = MarkovModel(sentence_vec = yelp_corpus, order = 3)
 ```
 
-The MarkovModel takes a collection of sentences or documents, which are used as a corpus for the class's sentence generator methods. It also takes an order argument, which specifies the length of the n-grams the class creates when generating a random sentence. Three (3) is generally a solid order - anything lower often produces illegible sentences, and numbers higher eventually copy too much one sentence from the original data set.
+The MarkovModel takes a collection of sentences or documents, which are used as a corpus for the class's sentence generator methods. It also takes an order argument, which specifies the length of the n-grams used as keys the transition matrix built before generating a random sentence. Three (3) is generally a solid order - anything lower often produces illegible sentences, and numbers higher eventually copy too much one sentence from the original data set.
 
 The MarkovModel class has two methods for generating new sentences. The first is a simple sentence generator, which is fairly naive. The second sentence is (a bit) smarter, reducing some elements of randomness for where the new sentence starts and ends, but still preserving the markov property during state transitions.
 
 ## Examples
+
 
 ## Progress
 
