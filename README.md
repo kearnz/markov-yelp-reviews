@@ -72,10 +72,6 @@ The MarkovModel class has two methods for generating new sentences. The first is
 
 ## Examples
 
-```python
-
-```
-
 ## Progress
 
 1. Download the yelp dataset and store it locally
