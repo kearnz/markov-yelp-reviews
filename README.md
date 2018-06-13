@@ -56,7 +56,7 @@ The MarkovModel class is responsible for actually generating new sentences from 
 yelp_markov = MarkovModel(sentence_vec = yelp_corpus, order = 3)
 ```
 
-The MarkovModel takes a collection of sentences or documents, which are used as a corpus for the class's sentence generator methods. It also takes an order argument, which specifies the length of the n-grams used as keys the in transition matrix built before generating a random sentence. Three (3) is generally a solid order - anything lower often produces illegible sentences, and numbers higher eventually copy too much one sentence from the original data set.
+The MarkovModel takes a collection of sentences or documents, which are used as a corpus for the class's sentence generator methods. It also takes an order argument, which specifies the length of the n-grams used as keys in the transition matrix built before generating a random sentence. Three (3) is generally a solid order - anything lower often produces illegible sentences, and numbers higher eventually copy too much one sentence from the original data set.
 
 The MarkovModel class has two methods for generating new sentences. The first is a simple sentence generator, which is fairly naive. The second sentence is (a bit) smarter, reducing some elements of randomness for where the new sentence starts and ends, but still preserving the markov property during state transitions.
 
